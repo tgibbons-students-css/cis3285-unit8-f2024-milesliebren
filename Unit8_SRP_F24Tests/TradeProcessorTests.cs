@@ -1,13 +1,19 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SingleResponsibilityPrinciple;
-using System.IO;
-using Xunit;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Unit8_SRP_F24
+using System.IO;
+using Microsoft.Data.SqlClient;
+
+namespace SingleResponsibilityPrinciple.Tests
 {
     public class TradeProcessorTests
     {
-        [Fact]
+        [Xunit.Fact]
         public void ProcessTrades_ShouldAddRecordsToDatabase()
         {
             // Arrange
@@ -24,7 +30,7 @@ namespace Unit8_SRP_F24
 
             // Assert
             int recordCount = CountDbRecords(); // This is a method that counts the number of records in the DB.
-            Assert.Equal(2, recordCount); // We expect 2 records to be inserted
+            Assert.Equals(2, recordCount); // We expect 2 records to be inserted
         }
 
         // This method should be implemented to connect to the database and count records.
